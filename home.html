@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevForm</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+    <style>
+        .custom-width {
+            width: 700px;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9; /* IE8 */
+
+        }
+          .p4{
+              font-size: 20px;
+              text-align: center;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          .p3{
+              font-size: 20px;
+              text-align: left;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          button {
+                width: 100px;
+                background-color: green;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+             }
+
+           .card img {
+                width: 100%;
+                height: auto;
+                transition: transform 0.2s;
+            }
+
+            .card img.zoomable {
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .card img.zoomable:hover {
+                transform: scale(1.2);
+            }
+             pre {
+                background-color: #d0d0d0;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+           }
+.comment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.comment {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-text {
+  margin: 0 0 0.5rem 0;
+}
+
+.comment-date {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.comment-form textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 80px; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.comment-form button {
+  background-color: #28a745; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #218838; 
+}
+
+#comentarios-container {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+    </style>
+   <body style="background-image: url('https://ih1.redbubble.net/image.3378351994.0040/bg,f8f8f8-flat,750x,075,f-pad,750x1000,f8f8f8.jpg'); background-size: cover; background-position: center;">
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#">Dev<span>Form</span>.</a>
+        <!-- menu -->
+       <div class="menu">
+       <style type="text/css">/Configurações Padrões/
+ul.menu, .menu li, .menu a{ margin:0; padding:0; list-style:none; text-decoration:none;}ul.menu ul{ position:absolute; display:none; box-shadow:3px 3px 2px #333;}/* Configurações nivel 1*/ul.menu{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:15px; border-radius:5px; padding:0 5px;}.menu li{ float:left; width:auto; position:relative;}.menu li a{ display:block; padding:0 20px; line-height:45px; height:45px; float:left; transition:all 0.1s linear; }/* Configurações nivel 2*/.menu li:hover > ul.submenu-1{ background:#fff; display:block;  top:45px; left:0; padding:5px; width:200px; border-radius:0 0 5px 5px;   }.menu ul.submenu-1 a{  width:160px; padding:0 20px; border-radius:5px;  }/* Configurações nivel 2*/.menu li:hover > ul.submenu-2{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-2 a{  width:160px; padding:0 20px; border-radius:5px; }/* Configurações nivel 3*/.menu li:hover > ul.submenu-3{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-3 a{  width:160px; padding:0 20px; border-radius:5px; }/Configurações de cores//nivel 1/.menu{background:#CCC; }.menu a{ color:#000;}.menu li:hover > a{ background:#999;  color:#444;}/nivel 2/.submenu-1{ background:#999;}.submenu-1 a{color:#333;}.submenu-1 li:hover > a{ background:#888; }/nivel 3/.submenu-2{ background:#666;}.submenu-2 a{color:#000;}.submenu-2 li:hover > a{ background:#333; }/nivel 3/.submenu-3{ background:#333;}.submenu-3 a{color:#fff;}.submenu-3 li:hover > a{ background:#000; }</style>
+<ul class="menu"> 
+<li><a href="file:../Devform2.0/home.html">HOME</a></li>
+                    <li><a href="#">PROJETOS</a>    
+                        <ul class="submenu-1">     
+                            <li><a href="file:../Devform2.0/index.html">PROJ.Semáforo</a></li>            
+                            <li><a href="file:../Devform2.0/proj_buzzer.html">PROJ.musica</a></li>        
+                            <li><a href="file:../Devform2.0/proj_censor.html">PROJ.censor</a></li>            
+                        </ul>
+                    </li>                    
+                    <li><a href="#">SOFTWARE</a>
+                        <ul class="submenu-1">
+                            <li><a href="file:../Devform2.0/dowload-info.html">Arcuino Cloud</a></li>
+                            <li><a href="file:../Devform2.0/tinkerkad.html">Tinkercad</a></li>
+                            <li><a href="file:../Devform2.0/varios.html">Variados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="file:../Devform2.0/component.html">COMPONENTES ELETRONICOS</a></li> 
+</li></ul></li></ul>   
+</style>
+        </div>
+        <!-- /menu -->
+         <div class="toggle icon-menu"></div>
+            <div class="toggle icon-close"></div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HOME -->
+       <!-- HOME -->
+<section class="section" id="home">
+</section>
+   
+      <div class="divider-1"></div>
+    </main>
+
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">Dev<span>Form</span>.</a>
+          <p>©2024 </p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- main.js -->
+    <script src="main.js"></script>
+  </body>
+</html>

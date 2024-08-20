@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevForm</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#">Dev<span>Form</span>.</a>
+        <!-- menu -->
+       <div class="menu">
+         <style type="text/css">/Configurações Padrões/
+ul.menu, .menu li, .menu a{ margin:0; padding:0; list-style:none; text-decoration:none;}ul.menu ul{ position:absolute; display:none; box-shadow:3px 3px 2px #333;}/* Configurações nivel 1*/ul.menu{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:15px; border-radius:5px; padding:0 5px;}.menu li{ float:left; width:auto; position:relative;}.menu li a{ display:block; padding:0 20px; line-height:45px; height:45px; float:left; transition:all 0.1s linear; }/* Configurações nivel 2*/.menu li:hover > ul.submenu-1{ display:block; top:45px; left:0; padding:5px; width:200px; border-radius:0 0 5px 5px;   }.menu ul.submenu-1 a{  width:160px; padding:0 20px; border-radius:5px;  }/* Configurações nivel 2*/.menu li:hover > ul.submenu-2{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-2 a{  width:160px; padding:0 20px; border-radius:5px; }/* Configurações nivel 3*/.menu li:hover > ul.submenu-3{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-3 a{  width:160px; padding:0 20px; border-radius:5px; }/Configurações de cores//nivel 1/.menu{background:#CCC; }.menu a{ color:#000;}.menu li:hover > a{ background:#999;  color:#444;}/nivel 2/.submenu-1{ background:#999;}.submenu-1 a{color:#fff;}.submenu-1 li:hover > a{ background:#666; }/nivel 3/.submenu-2{ background:#666;}.submenu-2 a{color:#000;}.submenu-2 li:hover > a{ background:#333; }/nivel 3/.submenu-3{ background:#333;}.submenu-3 a{color:#fff;}.submenu-3 li:hover > a{ background:#000; }</style>
+<ul class="menu"> 
+<li><a href="file:../trabalho%20web/index.html">INICIO</a></li>   <li><a href="#">PROJ ETOS</a>    
+<ul class="submenu-1">     
+<li><a href="file:../trabalho%20web/trabalho_gabriel.html">PROJ.Semáforo</a></li>            
+<li><a href="file:../trabalho%20web/buzzer.html">PROJ.musica</a></li>        
+<li><a href="file:../trabalho%20web/censor.html">PROJ.censor</a> </li>            
+    </ul>                    
+<li><a href="file:../trabalho%20web/dowload.html">DOWNLOAD</a></li>    
+<li><a href="file:../trabalho%20web/ardoino.html">COMPONENTES ELETRONICOS</a></li> 
+<li><a href="file:../trabalho%20web/sait.html">TINKERCAD</a></li>
+</li></ul></li></ul>   
+</style>
+        </div>
+        <!-- /menu -->
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section class="section" id="home">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://gcmais.com.br/wp-content/uploads/2022/07/rede-de-semaforos-cresceu-63-em-fortaleza.jpg"
+              alt="Mulher sorrindo penteando outra mulher"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Faça sua propria melodia!</h2>
+            <p>
+              aprenda a construir um progeto com buzzer do zero! <br>Sem enrolação.
+            </p>
+            <a class="button" href="#"></a>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://www.vidadesilicio.com.br/wp-content/uploads/COMP0062-jpg.webp"
+              alt="imagem do buzzer"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">O que é um buzzer</h2>
+            <p>
+              O buzzer é um pequeno dispositivo que apita sempre que estiver energizado e serve para atuar como um poderoso notificador de alarmes1. Ele é inserido em computadores ou aparelhos de residências automatizadas12. <br>O buzzer é um dispositivo para geração de sinais sonoros, como aqueles encontrados em computadores, e funciona através de vibração por um oscilador que determina uma frequência específica.
+            </p>
+            <br />
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Componentes Necesarios</h2>
+            <p>
+             <ul>
+                <li>2x jumpers-machos</li>
+                <li>1x resistor</li>
+                <li>1x buzzer</li>
+                <li>1x arduino</li>
+                <li>1x protoboard</li>
+              </ul>
+
+            </p>
+          </header>
+          <div class="cards grid">
+            <div class="card">
+               <img
+              src="../imagens-prov/circuito-buzzer.png"
+              alt="imagem de tela 1"
+            />
+              <h3 class="title">Circuito</h3>
+              <p>
+               O circuito é bem simples, basta ligar o positivo do buzzer em um resistor, ligar a outra ponta do resistor em um dos pinos digitais do Arduino. Por fim, ligar o negativo do buzzer no GND. O resistor pode ser de 100Ω (não tem valor exato). A imagem abaixo ilustra a ligação. O circuito do alto falante é o mesmo.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!-- TESTIMONIALS -->
+      <section class="section" id="testimonials">
+        <div class="container">
+          <header>
+            <h2 class="title">Comentarios</h2>
+          </header>
+          <div class="testimonials swiper-container">
+            <div class="swiper-wrapper">
+              <div class="testimonial swiper-slide">
+                 <div class="discussion">
+        <div class="discussion__header">
+            <div class="authed-user">
+            </div>
+            <form id="newcomment__form">
+                <textarea tabindex="1" cols="150" rows="4" minlength="5" 
+                    required placeholder="Escreva um comentário"
+                ></textarea>
+                <div class="newcomment__toolbar">
+                    <button
+                        id="reset-button" class="button--secondary"
+                        tabindex="3" type="button"
+                    >
+                        Resetar
+                    </button>
+                    <button
+                        id="confirm-button" class="button--primary"
+                        tabindex="2" type="submit"
+                    >
+                        Comentar
+                    </button>
+                </div>
+            </form>
+        </div>
+        <div class="discussion__comments">
+            <!-- will be generated -->
+        </div>
+      </div>
+      <script src="script.js"></script>
+            </div>
+
+            <!-- If we need pagination -->
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a DevForm, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+            <a
+              href="https://api.whatsapp.com/send?phone=+5546999310787&text=Oi! Gostaria de agendar um horário"
+              class="button"
+              target="_blank"
+              ><i class="icon-whatsapp"></i> Entrar em contato</a
+            >
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-mail"></i> gabriel.meclovin2@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">beauty<span>salon</span>.</a>
+          <p>©2021 Beautysalon.</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- main.js -->
+    <script src="main.js"></script>
+  </body>
+</html>

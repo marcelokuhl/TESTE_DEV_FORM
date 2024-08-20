@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevForm</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <style>
+        .custom-width {
+            width: 700px;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9; /* IE8 */
+        }
+          .p4{
+              font-size: 20px;
+              text-align: center;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          .p3{
+              font-size: 20px;
+              text-align: left;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          button {
+                width: 100px;
+                background-color: green;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+              }
+             .comment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.comment {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-text {
+  margin: 0 0 0.5rem 0;
+}
+
+.comment-date {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.comment-form textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 80px; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.comment-form button {
+  background-color: #28a745; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #218838; 
+}
+
+#comentarios-container {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+    </style>
+     <script>
+        function copiarConteudo() {
+          // Seleciona o elemento com o ID "conteudo"
+          var conteudo = document.getElementById("conteudo");
+          var input = document.createElement("input");
+          
+          // Define o valor do input como o texto do conteúdo
+          input.value = conteudo.innerText;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          document.body.removeChild(input);
+          alert("Conteúdo copiado!");
+        }
+        // Função para adicionar um novo comentário
+          // Função para adicionar um novo comentário
+function adicionarComentario(event) {
+  event.preventDefault();
+
+  var comentarioInput = document.getElementById("comentario-input");
+  var comentarioTexto = comentarioInput.value.trim();
+
+  if (comentarioTexto !== "") {
+    var comentariosContainer = document.getElementById("comentarios-container");
+
+    var comentarioDiv = document.createElement("div");
+    comentarioDiv.classList.add("comment");
+
+    var comentarioTextP = document.createElement("p");
+    comentarioTextP.classList.add("comment-text");
+    comentarioTextP.innerText = comentarioTexto;
+
+    var comentarioDateP = document.createElement("p");
+    comentarioDateP.classList.add("comment-date");
+    comentarioDateP.innerText = new Date().toLocaleString();
+
+    comentarioDiv.appendChild(comentarioTextP);
+    comentarioDiv.appendChild(comentarioDateP);
+
+    comentariosContainer.appendChild(comentarioDiv);
+
+    comentarioInput.value = "";
+  }
+}
+
+
+      </script>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#">Dev<span>Form</span>.</a>
+        <!-- menu -->
+       <div class="menu">
+         <style type="text/css">/Configurações Padrões/
+ul.menu, .menu li, .menu a{ margin:0; padding:0; list-style:none; text-decoration:none;}ul.menu ul{ position:absolute; display:none; box-shadow:3px 3px 2px #333;}/* Configurações nivel 1*/ul.menu{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:15px; border-radius:5px; padding:0 5px;}.menu li{ float:left; width:auto; position:relative;}.menu li a{ display:block; padding:0 20px; line-height:45px; height:45px; float:left; transition:all 0.1s linear; }/* Configurações nivel 2*/.menu li:hover > ul.submenu-1{ background:#fff; display:block;  top:45px; left:0; padding:5px; width:200px; border-radius:0 0 5px 5px;   }.menu ul.submenu-1 a{  width:160px; padding:0 20px; border-radius:5px;  }/* Configurações nivel 2*/.menu li:hover > ul.submenu-2{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-2 a{  width:160px; padding:0 20px; border-radius:5px; }/* Configurações nivel 3*/.menu li:hover > ul.submenu-3{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-3 a{  width:160px; padding:0 20px; border-radius:5px; }/Configurações de cores//nivel 1/.menu{background:#CCC; }.menu a{ color:#000;}.menu li:hover > a{ background:#999;  color:#444;}/nivel 2/.submenu-1{ background:#999;}.submenu-1 a{color:#333;}.submenu-1 li:hover > a{ background:#888; }/nivel 3/.submenu-2{ background:#666;}.submenu-2 a{color:#000;}.submenu-2 li:hover > a{ background:#333; }/nivel 3/.submenu-3{ background:#333;}.submenu-3 a{color:#fff;}.submenu-3 li:hover > a{ background:#000; }</style>
+<ul class="menu"> 
+<li><a href="file:../Devform2.0/home.html">HOME</a></li>
+                    <li><a href="#">PROJETOS</a>    
+                        <ul class="submenu-1">     
+                            <li><a href="file:../Devform2.0/index.html">PROJ.Semáforo</a></li>            
+                            <li><a href="file:../Devform2.0/proj_buzzer.html">PROJ.musica</a></li>        
+                            <li><a href="file:../Devform2.0/proj_censor.html">PROJ.censor</a></li>            
+                        </ul>
+                    </li>                    
+                    <li><a href="#">SOFTWARE</a>
+                        <ul class="submenu-1">
+                            <li><a href="file:../Devform2.0/dowload-info.html">Arcuino Cloud</a></li>
+                            <li><a href="file:../Devform2.0/tinkerkad.html">Tinkercad</a></li>
+                            <li><a href="file:../Devform2.0/varios.html">Variados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="file:../Devform2.0/component.html">COMPONENTES ELETRONICOS</a></li> 
+</li></ul></li></ul>   
+</style>
+        </div>
+        <!-- /menu -->
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section class="section" id="home">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://gcmais.com.br/wp-content/uploads/2022/07/rede-de-semaforos-cresceu-63-em-fortaleza.jpg"  class="custom-img"
+              alt="Mulher sorrindo penteando outra mulher"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">O que há por traz do Semáforo?</h2>
+            <p>
+              Aprenda a fazer um semáforo do zero! <br>Sem enrolação.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://classic.exame.com/wp-content/uploads/2021/10/programar.jpg?quality=70&strip=info&w=1024"  class="custom-img"
+              alt="3 mulheres sorrindo"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Importancia</h2>
+            <p>
+              Aprender a programar um semáforo é uma oportunidade única de desenvolver habilidades práticas e teóricas essenciais. Em primeiro lugar, compreender como um semáforo funciona proporciona uma base sólida em eletrônica e programação, áreas fundamentais na tecnologia moderna. Além disso, ao programar um semáforo, é possível explorar conceitos cruciais como lógica de controle, temporização e interação com dispositivos físicos. Essa experiência prática não apenas fortalece a compreensão teórica, mas também estimula a criatividade ao criar sequências de sinalização personalizadas. A programação de semáforos oferece, portanto, uma maneira envolvente e desafiadora de aprimorar habilidades técnicas e criativas, preparando os aprendizes para enfrentar os desafios do mundo digital atual.
+            </p>
+            <br />
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Componentes Necesarios</h2>
+            <p>
+             <ul>
+                <li>1x Placa Arduíno</li>
+                <li>1x Protoboard</li>
+                <li>1x LED Vermelho</li>
+                <li>1x LED Amarelo</li>
+                <li>1x LED Verde</li>
+                <li>3x Resistor 220 ohms (caso sua Led precise)</li>
+                <li>7x Jumper macho-macho</li>
+              </ul>
+
+            </p>
+          </header>
+          <div class="cards grid">
+            <div class="card">
+               <img
+              src="../imagens-prov/tela1.png"  class="custom-img"
+              alt="imagem de tela 1"
+            />
+              <h3 class="title">Passo 1</h3>
+              <p>
+               Use um resistor para ligar o pino negativo do Led (o fio mais curto) à fileira negativa da Protoboard (conforme a imagem).
+              </p>
+            </div>
+            <div class="card">
+               <img
+              src="../imagens-prov/tela2.png"  class="custom-img"
+              alt="imagem de tela 2"
+            />
+              <h3 class="title">Passo 2</h3>
+              <p>
+                Ligue os pinos positivos dos Leds na seguinte ordem:
+              </p>
+              <ul class="inside square">
+                <li>Vermelho na porta 13</li>
+                <li>Laranja/Amarelo na porta 12</li>
+                <li>Verde na porta 11</li>
+              </ul>
+             <p>lenbrando que os jumpers podem ser de qualquer cor.</p>
+            </div>
+            <div class="card treat-card">
+               <img
+              src="../imagens-prov/tela3.png"  class="custom-img"
+              alt="imagem de tela 3"
+            />
+              <h3 class="title">Pronto acabou a estrutura, só falta a programação.</h3>
+            </div>
+            <div class="card">
+              <h3 class="title">ATENÇÃO</h3>
+              <img class ="imagem-reduzida"
+              src="https://www.guj.com.br/uploads/default/original/3X/0/9/09b186fa1a06ee6b05fe8974626d24d079b64854.jpeg"  class="custom-img"
+              alt="imagem informativa"
+            />
+              <p>
+              Lembre-se que o LED tem polaridade: O terminal maior tem polaridade positiva e o lado do chanfro tem polaridade negativa
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">programação</h2>
+            <p>
+             Após abrir o programa do Arduíno, verificar se o modelo mostrado no aplicativo é o mesmo que o usado por você, e a porta que está o Arduíno, insira o seguinte código.
+              <br>
+              Vale ressaltar que o código possui algumas anotações para ajudar na compreensão da programação.</p>
+             <center>
+              <br>
+              <br>
+          <div class="cards grid custom-width">
+             <div class="card treat-card ">
+              <h3 class="title">Programa</h3>
+              <p class="p3"  id="conteudo">
+              <br>
+                                //Vamos atribuir(int) a cada pino a cor do led correspondente<br>
+              //para deixar a programação mais intuitiva<br>
+              int vermelho = 13;<br>
+              int laranja = 12;<br>
+              int verde = 11;<br>
+              <br><br>
+              void setup()
+              <br><br>
+              {
+              //Agora deixaremos predefinido(pinMode) todos os leds como saídas (OUTPUT) do arduíno<br>
+              pinMode(vermelho, OUTPUT);<br>
+              pinMode(laranja, OUTPUT);<br>
+              pinMode(verde, OUTPUT);<br>
+              }<br>
+              void loop()<br>
+              {<br>
+              //nosso semafaro iniciará com a luz vermelha acesa por 2 segundos<br>
+              digitalWrite(vermelho, HIGH); //liga(HIGH) o Led vermelho<br>
+              delay(2000); // Delay de 2000 millisegundos<br>
+              <br><br>
+              //após 2 segundos apaga a luz vermelha e acende a verde<br>
+              digitalWrite(vermelho, LOW); //desliga(LOW) o Led vermelho<br>
+              digitalWrite(verde, HIGH); //liga no mesmo instante o led verde<br>
+              delay(2000);<br>
+              //apaga a luz verde e acende a laranja por 1 segundo<br>
+              digitalWrite(verde, LOW);<br>
+              digitalWrite(laranja, HIGH);<br>
+              delay(1000);<br>
+              <br><br>
+              //desliga a luz laranja e reinicia o loop<br>
+              digitalWrite(laranja, LOW);<br>
+              } 
+                  </p>
+              </p>
+               <button onclick="copiarConteudo()">Copiar</button>
+            </div>
+          </div>
+        </center>
+          </div>
+        </div>
+      </section>
+
+      <!-- TESTIMONIALS -->
+      <section class="section" id="testimonials">
+        <!-- Seção de Comentários -->
+<section id="comments" class="container comment-section">
+  <h3>Comentários</h3>
+  <form class="comment-form" onsubmit="adicionarComentario(event)">
+    <textarea
+      id="comentario-input"
+      placeholder="Escreva seu comentário aqui..."
+      required
+    ></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+  <div id="comentarios-container">
+    <!-- Comentários aparecerão aqui -->
+  </div>
+</section>
+</section>
+      <div class="divider-2"></div>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a DevForm, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+            <a
+              href="https://chat.whatsapp.com/Gz7B5MAZ3iwDJzdpfmLb6A"
+              class="button"
+              target="_blank"
+            >
+              <i class="icon-whatsapp"></i> Junte-se ao nosso grupo
+            </a>
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-mail"></i> gabriel.meclovin2@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">Dev<span>Form</span>.</a>
+          <p>©2024</p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- main.js -->
+    <script src="main.js"></script>
+  </body>
+</html>

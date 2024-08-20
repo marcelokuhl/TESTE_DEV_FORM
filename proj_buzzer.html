@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevForm</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+    <style>
+        .custom-width {
+            width: 700px;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9; /* IE8 */
+        }
+          .p4{
+              font-size: 20px;
+              text-align: center;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          .p3{
+              font-size: 20px;
+              text-align: left;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          button {
+                width: 100px;
+                background-color: green;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+              }
+   .comment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.comment {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-text {
+  margin: 0 0 0.5rem 0;
+}
+
+.comment-date {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.comment-form textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 80px; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.comment-form button {
+  background-color: #28a745; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #218838; 
+}
+
+#comentarios-container {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+    </style>
+     <script>
+        function copiarConteudo() {
+          // Seleciona o elemento com o ID "conteudo"
+          var conteudo = document.getElementById("conteudo");
+          var input = document.createElement("input");
+          
+          // Define o valor do input como o texto do conteúdo
+          input.value = conteudo.innerText;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          document.body.removeChild(input);
+          alert("Conteúdo copiado!");
+        }
+        // Função para adicionar um novo comentário
+          // Função para adicionar um novo comentário
+function adicionarComentario(event) {
+  event.preventDefault();
+
+  var comentarioInput = document.getElementById("comentario-input");
+  var comentarioTexto = comentarioInput.value.trim();
+
+  if (comentarioTexto !== "") {
+    var comentariosContainer = document.getElementById("comentarios-container");
+
+    var comentarioDiv = document.createElement("div");
+    comentarioDiv.classList.add("comment");
+
+    var comentarioTextP = document.createElement("p");
+    comentarioTextP.classList.add("comment-text");
+    comentarioTextP.innerText = comentarioTexto;
+
+    var comentarioDateP = document.createElement("p");
+    comentarioDateP.classList.add("comment-date");
+    comentarioDateP.innerText = new Date().toLocaleString();
+
+    comentarioDiv.appendChild(comentarioTextP);
+    comentarioDiv.appendChild(comentarioDateP);
+
+    comentariosContainer.appendChild(comentarioDiv);
+
+    comentarioInput.value = "";
+  }
+}
+
+
+      </script>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#">Dev<span>Form</span>.</a>
+        <!-- menu -->
+       <div class="menu">
+         <style type="text/css">/Configurações Padrões/
+ul.menu, .menu li, .menu a{ margin:0; padding:0; list-style:none; text-decoration:none;}ul.menu ul{ position:absolute; display:none; box-shadow:3px 3px 2px #333;}/* Configurações nivel 1*/ul.menu{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:15px; border-radius:5px; padding:0 5px;}.menu li{ float:left; width:auto; position:relative;}.menu li a{ display:block; padding:0 20px; line-height:45px; height:45px; float:left; transition:all 0.1s linear; }/* Configurações nivel 2*/.menu li:hover > ul.submenu-1{ background:#fff; display:block;  top:45px; left:0; padding:5px; width:200px; border-radius:0 0 5px 5px;   }.menu ul.submenu-1 a{  width:160px; padding:0 20px; border-radius:5px;  }/* Configurações nivel 2*/.menu li:hover > ul.submenu-2{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-2 a{  width:160px; padding:0 20px; border-radius:5px; }/* Configurações nivel 3*/.menu li:hover > ul.submenu-3{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-3 a{  width:160px; padding:0 20px; border-radius:5px; }/Configurações de cores//nivel 1/.menu{background:#CCC; }.menu a{ color:#000;}.menu li:hover > a{ background:#999;  color:#444;}/nivel 2/.submenu-1{ background:#999;}.submenu-1 a{color:#333;}.submenu-1 li:hover > a{ background:#888; }/nivel 3/.submenu-2{ background:#666;}.submenu-2 a{color:#000;}.submenu-2 li:hover > a{ background:#333; }/nivel 3/.submenu-3{ background:#333;}.submenu-3 a{color:#fff;}.submenu-3 li:hover > a{ background:#000; }</style>
+<ul class="menu"> 
+<li><a href="file:../Devform2.0/home.html">HOME</a></li>
+                    <li><a href="#">PROJETOS</a>    
+                        <ul class="submenu-1">     
+                            <li><a href="file:../Devform2.0/index.html">PROJ.Semáforo</a></li>            
+                            <li><a href="file:../Devform2.0/proj_buzzer.html">PROJ.musica</a></li>        
+                            <li><a href="file:../Devform2.0/proj_censor.html">PROJ.censor</a></li>            
+                        </ul>
+                    </li>                    
+                    <li><a href="#">SOFTWARE</a>
+                        <ul class="submenu-1">
+                            <li><a href="file:../Devform2.0/dowload-info.html">Arcuino Cloud</a></li>
+                            <li><a href="file:../Devform2.0/tinkerkad.html">Tinkercad</a></li>
+                            <li><a href="file:../Devform2.0/varios.html">Variados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="file:../Devform2.0/component.html">COMPONENTES ELETRONICOS</a></li> 
+</li></ul></li></ul>   
+</style>
+        </div>
+        <!-- /menu -->
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section class="section" id="home">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://img.freepik.com/vetores-premium/melodia-de-onda-musical-ou-fundo-de-notas-de-musica_8071-25879.jpg" style="float:center;width:500px;height:400px "
+              alt="imagem de melodia"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Faça sua propria melodia!</h2>
+            <p>
+              aprenda a construir um progeto com buzzer do zero! <br>Sem enrolação.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://www.vidadesilicio.com.br/wp-content/uploads/COMP0062-jpg.webp" style="float:center;width:500px;height:400px "
+              alt="imagem do buzzer"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">O que é um buzzer</h2>
+            <p>
+              O buzzer é um pequeno dispositivo que apita sempre que estiver energizado e serve para atuar como um poderoso notificador de alarmes1. Ele é inserido em computadores ou aparelhos de residências automatizadas12. <br>O buzzer é um dispositivo para geração de sinais sonoros, como aqueles encontrados em computadores, e funciona através de vibração por um oscilador que determina uma frequência específica.
+            </p>
+            <br />
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Componentes Necesarios</h2>
+            <p>
+             <ul>
+                <li>2x jumpers-machos</li>
+                <li>1x resistor</li>
+                <li>1x buzzer</li>
+                <li>1x arduino</li>
+                <li>1x protoboard</li>
+              </ul>
+
+            </p>
+          </header>
+        <center>
+          <div class="cards grid custom-width">
+             <div class="card treat-card ">
+                <img src="../imagens-prov/circuito-buzzer.png" alt="imagem de tela 1" width="300" height="500" />
+              <h3 class="title">Circuito</h3>
+              <p>
+               O circuito é bem simples, basta ligar o positivo do buzzer em um resistor, ligar a outra ponta do resistor em um dos pinos digitais do Arduino. Por fim, ligar o negativo do buzzer no GND. O resistor pode ser de 100Ω (não tem valor exato). A imagem asima ilustra a ligação. O circuito do alto falante é o mesmo.
+              </p>
+            </div>
+          </div>
+        </center>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">programação</h2>
+            <p>
+             O que você precisa fazer é colocar as notas, em ordem, da musica que você deseja tocar na variável musica que fica no início do programa. E, no fim da variável, escrever “Fim”. As notas disponíveis são: Do, Re, Mi, Fa, Sol, La, Si, Do#, Re#, Fa#, Sol# e La#. Não use acentos para escrever as notas e escreva a primeira letra maiúscula e a segunda minuscula. E caso exista uma pausa entre as notas, basta escrever “Pausa”. Exemplo: se minha música possui as notas Dó, Ré#, Mi, uma pausa e a nota Fa nessa ordem, eu devo escrever:</p>
+
+              <p class="p4">char* musica[] = {“Do”,”Re#”,”Mi”, “Pausa”, “Fa”, “Fim”};</p>
+
+              <p>Logo depois defina, também em ordem, o tempo – em ms – de cada nota e da pausa na variável duracao. O tempo segue a ordem respectiva da variável música: o primeiro numero é a duração da primeira nota, o segundo nº da segunda nota e por aí vai. E o tempo também define a duração da pausa. Pegando o mesmo exemplo anterior, a variável poderia ficar assim:</p>
+
+              <p class="p4">int duracao[] = {200, 300, 400, 100, 300};</p>
+
+              <p>Observe que a pausa foi de 100ms. Feito isso, resta apenas configurar o pino do buzzer:</p>
+
+              <p class="p4">char buz = 2;</p>
+
+              <p>Agora é só criar sua melodia e fazer o teste. Se você quiser ouvir a marcha imperial que tem na programação, comente a linha “tocar(musica,duracao);”  e descomente a linha “tocar(starwars,dur);”.</p> 
+              <p>
+                Desenvolvido pelo site MundoProjetado<br>
+                Código que toca música<br>
+                Basta colocar as notas da musica em ordem na variável 'musica' abaixo<br>
+                No fim das notas escreva "Fim"<br>
+                Não use acentos e escreva a primeira letra maiuscula e a segunda minuscula<br>
+                Logo depois defina, tambem, em ordem, o tempo de cada nota<br>
+                NOTAS DISPONÍVEIS:<br>
+                <p class="p4">Do, Re, Mi, Fa, Sol, La, Si, Do#, Re#, Fa#, Sol#, La#<br></p>
+              <br>
+              </p>
+            <br />
+             <center>
+          <div class="cards grid custom-width">
+             <div class="card treat-card ">
+              <h3 class="title">Programa</h3>
+              <p class="p3"  id="conteudo">
+              <br>
+                  char buz = 2;
+                  char* musica[] = {"La","Re","Fa","Sol","La","Re", "Fa", "Sol", "Mi", "Pausa", "Sol", "Do", <br>"Fa", "Mi", "Sol", "Do", "Fa", "Mi", "Re", "Fim"}; //Game of Thrones<br>
+                  int duracao[] = {700, 500, 300, 250, 250, 300, 200, 200, 700, 200, 500, 500, 200, 200, 200, 500, 200, 200, 500};<br>
+                  char* starwars[] = {"La","Pausa","La","Pausa","La","Pausa","Fa","Do","La","Pausa","Fa","Do","La",<br>"Pausa","Mi","Pausa","Mi","Pausa","Mi","Pausa","Fa","Do","Sol","Pausa","Fa","Do","La","Pausa","La",<br>"Pausa","La","Pausa","La","Pausa","La","Pausa","Sol#","Pausa","Sol","Fa#","Fa","Fa#","Fim"}; <br>//Marcha Imperial<br>
+                  int dur[] = {400, 100, 400, 100, 400, 100, 300, 200, 300, 100, 300, 200, 300, 200, 400, 100, 400, 100, 400, 100,<br> 300, 300, 200, 100 , 300, 300, 200, 200, 400, 50, 400, 50, 400, 50, 400, 50, 300, 50, 300, 200, 200, 200};<br>
+                  <br>
+                  void setup(){<br>
+                    pinMode(buz, OUTPUT);<br>
+                    tocar(musica,duracao);<br>
+                    //tocar(starwars,dur);<br>
+                  }<br>
+                  <br>
+                  void loop(){<br>
+                    // Não utilizado<br>
+                  }<br>
+                  <br>
+                  void tocar(char* mus[], int tempo[]){<br>
+                    int tom = 0;<br>
+                    for(int i = 0; mus[i]!="Fim";i++){<br>
+                      if(mus[i] == "Do") tom = 262;<br>
+                      if(mus[i] == "Re") tom = 294;<br>
+                      if(mus[i] == "Mi") tom = 330;<br>
+                      if(mus[i] == "Fa") tom = 349;<br>
+                      if(mus[i] == "Sol") tom = 392;<br>
+                      if(mus[i] == "La") tom = 440;<br>
+                      if(mus[i] == "Si") tom = 494;<br>
+                      if(mus[i] == "Do#") tom = 528;<br>
+                      if(mus[i] == "Re#") tom = 622;<br>
+                      if(mus[i] == "Fa#") tom = 370;<br>
+                      if(mus[i] == "Sol#") tom = 415;<br>
+                      if(mus[i] == "La#") tom = 466;<br>
+                      if(mus[i] == "Pausa") tom = 0;<br>
+                      tone(buz, tom, tempo[i]);<br>
+                      delay(tempo[i]);
+                    }
+                  }
+                  </p>
+              </p>
+               <button onclick="copiarConteudo()">Copiar</button>
+            </div>
+          </div>
+        </center>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- TESTIMONIALS -->
+      <section class="section" id="testimonials">
+       <section id="comments" class="container comment-section">
+  <h3>Comentários</h3>
+  <form class="comment-form" onsubmit="adicionarComentario(event)">
+    <textarea
+      id="comentario-input"
+      placeholder="Escreva seu comentário aqui..."
+      required
+    ></textarea>
+    <button type="submit">Enviar</button>
+  </form>
+  <div id="comentarios-container">
+    <!-- Comentários aparecerão aqui -->
+  </div>
+</section>
+</section>
+      <div class="divider-2"></div>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a DevForm, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+            <a
+              href="https://chat.whatsapp.com/Gz7B5MAZ3iwDJzdpfmLb6A"
+              class="button"
+              target="_blank"
+            >
+              <i class="icon-whatsapp"></i> Junte-se ao nosso grupo
+            </a>
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-mail"></i> gabriel.meclovin2@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">Dev<span>Form</span>.</a>
+          <p>©2024 </p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- main.js -->
+    <script src="main.js"></script>
+  </body>
+</html>

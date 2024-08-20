@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevForm</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+    <style>
+        .custom-width {
+            width: 700px;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9; /* IE8 */
+
+        }
+          .p4{
+              font-size: 20px;
+              text-align: center;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          .p3{
+              font-size: 20px;
+              text-align: left;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          button {
+                width: 100px;
+                background-color: green;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+             }
+
+           .card img {
+                width: 100%;
+                height: auto;
+                transition: transform 0.2s;
+            }
+
+            .card img.zoomable {
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .card img.zoomable:hover {
+                transform: scale(1.2);
+            }
+             pre {
+                background-color: #d0d0d0;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+           }
+.comment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.comment {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-text {
+  margin: 0 0 0.5rem 0;
+}
+
+.comment-date {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.comment-form textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 80px; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.comment-form button {
+  background-color: #28a745; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #218838; 
+}
+
+#comentarios-container {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+    </style>
+     <script>
+        function copiarConteudo() {
+          // Seleciona o elemento com o ID "conteudo"
+          var conteudo = document.getElementById("conteudo");
+          var input = document.createElement("input");
+          
+          // Define o valor do input como o texto do conteúdo
+          input.value = conteudo.innerText;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          document.body.removeChild(input);
+          alert("Conteúdo copiado!");
+        }
+        // Função para adicionar um novo comentário
+          // Função para adicionar um novo comentário
+function adicionarComentario(event) {
+  event.preventDefault();
+
+  var comentarioInput = document.getElementById("comentario-input");
+  var comentarioTexto = comentarioInput.value.trim();
+
+  if (comentarioTexto !== "") {
+    var comentariosContainer = document.getElementById("comentarios-container");
+
+    var comentarioDiv = document.createElement("div");
+    comentarioDiv.classList.add("comment");
+
+    var comentarioTextP = document.createElement("p");
+    comentarioTextP.classList.add("comment-text");
+    comentarioTextP.innerText = comentarioTexto;
+
+    var comentarioDateP = document.createElement("p");
+    comentarioDateP.classList.add("comment-date");
+    comentarioDateP.innerText = new Date().toLocaleString();
+
+    comentarioDiv.appendChild(comentarioTextP);
+    comentarioDiv.appendChild(comentarioDateP);
+
+    comentariosContainer.appendChild(comentarioDiv);
+
+    comentarioInput.value = "";
+  }
+}
+
+
+      </script>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#">Dev<span>Form</span>.</a>
+        <!-- menu -->
+       <div class="menu">
+       <style type="text/css">/Configurações Padrões/
+ul.menu, .menu li, .menu a{ margin:0; padding:0; list-style:none; text-decoration:none;}ul.menu ul{ position:absolute; display:none; box-shadow:3px 3px 2px #333;}/* Configurações nivel 1*/ul.menu{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:15px; border-radius:5px; padding:0 5px;}.menu li{ float:left; width:auto; position:relative;}.menu li a{ display:block; padding:0 20px; line-height:45px; height:45px; float:left; transition:all 0.1s linear; }/* Configurações nivel 2*/.menu li:hover > ul.submenu-1{ background:#fff; display:block;  top:45px; left:0; padding:5px; width:200px; border-radius:0 0 5px 5px;   }.menu ul.submenu-1 a{  width:160px; padding:0 20px; border-radius:5px;  }/* Configurações nivel 2*/.menu li:hover > ul.submenu-2{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-2 a{  width:160px; padding:0 20px; border-radius:5px; }/* Configurações nivel 3*/.menu li:hover > ul.submenu-3{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-3 a{  width:160px; padding:0 20px; border-radius:5px; }/Configurações de cores//nivel 1/.menu{background:#CCC; }.menu a{ color:#000;}.menu li:hover > a{ background:#999;  color:#444;}/nivel 2/.submenu-1{ background:#999;}.submenu-1 a{color:#333;}.submenu-1 li:hover > a{ background:#888; }/nivel 3/.submenu-2{ background:#666;}.submenu-2 a{color:#000;}.submenu-2 li:hover > a{ background:#333; }/nivel 3/.submenu-3{ background:#333;}.submenu-3 a{color:#fff;}.submenu-3 li:hover > a{ background:#000; }</style>
+<ul class="menu"> 
+<li><a href="file:../Devform2.0/home.html">HOME</a></li>
+                    <li><a href="#">PROJETOS</a>    
+                        <ul class="submenu-1">     
+                            <li><a href="file:../Devform2.0/index.html">PROJ.Semáforo</a></li>            
+                            <li><a href="file:../Devform2.0/proj_buzzer.html">PROJ.musica</a></li>        
+                            <li><a href="file:../Devform2.0/proj_censor.html">PROJ.censor</a></li>            
+                        </ul>
+                    </li>                    
+                    <li><a href="#">SOFTWARE</a>
+                        <ul class="submenu-1">
+                            <li><a href="file:../Devform2.0/dowload-info.html">Arcuino Cloud</a></li>
+                            <li><a href="file:../Devform2.0/tinkerkad.html">Tinkercad</a></li>
+                            <li><a href="file:../Devform2.0/varios.html">Variados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="file:../Devform2.0/component.html">COMPONENTES ELETRONICOS</a></li> 
+</li></ul></li></ul>   
+</style>
+        </div>
+        <!-- /menu -->
+         <div class="toggle icon-menu"></div>
+            <div class="toggle icon-close"></div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HOME -->
+       <!-- HOME -->
+<section class="section" id="home">
+    <div class="container grid">
+        <div class="image">
+            <img src="https://play-lh.googleusercontent.com/mQFpMUd2YiZ0Z8_NUxIQe-XxxfJY2rGFhFsbCHceEIcLx-ZWUmG0hmEivG80I6yhotY=w240-h480-rw" style="float:center;width:500px;height:400px" alt="imagem de melodia" />
+        </div>
+        <div class="text">
+            <h2 class="title">Explore Diferentes Plataformas para Programar em Arduino!</h2>
+            <p>
+                Conheça diversas plataformas que permitem a programação e simulação de projetos em Arduino. <br>Guia completo para iniciantes e entusiastas.
+            </p>
+        </div>
+    </div>
+</section>
+
+<div class="divider-1"></div>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="container grid">
+        <div class="image">
+            <img src="https://images.ctfassets.net/jl5ii4oqrdmc/2QsIucnKLGELpmXUcjFK0B/d27121ad76857da9948db3ee038baef7/blog-banner-Circuits.png" style="float:center;width:500px;height:400px" alt="Arduino Coding" />
+        </div>
+        <div class="text">
+            <h2 class="title">Plataformas de Codificação para Arduino</h2>
+            <p>
+                Existem várias plataformas que você pode usar para programar seus projetos em Arduino. Cada uma oferece diferentes funcionalidades e vantagens, facilitando a criação e simulação de seus circuitos eletrônicos.
+            </p>
+            <br />
+        </div>
+    </div>
+</section>
+
+<div class="divider-2"></div>
+
+<!-- SERVICES -->
+<section class="section" id="services">
+    <div class="container grid">
+        <header>
+            <h2 class="title">Opções de Plataformas</h2>
+            <p>
+                A seguir, exploraremos diferentes plataformas onde você pode programar e simular projetos em Arduino.
+            </p>
+        </header>
+        <center>
+            <div class="cards grid custom-width">
+                <div class="card treat-card">
+                    <h3 class="title">1. PlatformIO</h3>
+                    <p>
+                        <a href="https://platformio.org/" target="_blank">PlatformIO</a> é um ecossistema de desenvolvimento integrado para IoT. Ele oferece suporte a uma ampla gama de placas e frameworks, incluindo o Arduino. É ideal para usuários avançados que procuram um ambiente mais robusto e extensível.
+                    </p>
+                    <br><br>
+                     <img src="https://community.platformio.org/uploads/default/original/2X/8/8acc125ce85ef72db03b5f829480c8b604d3897c.jpeg" style="max-width: 50%; height: auto;" height="200" class="zoomable"/>
+                </div>
+
+                <div class="card treat-card">
+                    <h3 class="title">2. Codebender</h3>
+                    <p>
+                        O <a href="https://codebender.cc/" target="_blank">Codebender</a> é uma plataforma de codificação baseada em nuvem que permite programar e simular seus projetos Arduino diretamente no navegador. Ele oferece recursos colaborativos e uma grande biblioteca de códigos.
+                    </p>
+                    <br><br>
+                   <img src="https://atmelcorporation.wordpress.com/wp-content/uploads/2015/12/imagen-5.png?w=620&h=379" alt="Codebender" style="max-width: 70%; height: auto;" class="zoomable"/>
+                </div>
+
+                <div class="card treat-card">
+                    <h3 class="title">3. Visual Studio Code com Extensão Arduino</h3>
+                    <p>
+                        O <a href="https://code.visualstudio.com/docs/arduino/overview" target="_blank">Visual Studio Code</a> é um editor de código poderoso que, com a extensão do Arduino, se torna uma ferramenta eficiente para desenvolvimento de projetos Arduino. Ele oferece recursos avançados de edição e depuração.
+                    </p>
+                    <br><br>
+                   <img src="https://blog.cloudanalogy.com/wp-content/uploads/2020/03/vsc-01.jpg" alt="VS Code" style="max-width: 70%; height: auto;" class="zoomable"/>
+                </div>
+                <div class="card treat-card">
+                    <h3 class="title">4. mBlock</h3>
+                    <p>
+                        O <a href="https://www.mblock.cc/" target="_blank">mBlock</a> é uma plataforma de programação por blocos baseada no Scratch, que permite programar projetos em Arduino de forma visual e interativa. Ele é especialmente adequado para crianças e iniciantes, oferecendo uma introdução divertida à programação e eletrônica.
+                    </p>
+                    <p>
+                        Com o mBlock, você pode criar programas Arduino usando blocos de programação intuitivos. Isso ajuda a entender os conceitos de programação de forma visual, enquanto você constrói e controla projetos físicos com o Arduino.
+                    </p>
+                    <br><br>
+                     <img src="https://www.makeit.lu/wp-content/uploads/2020/03/mBlock-logo.jpg" alt="mBlock"  style="max-width: 70%; height: auto;" class="zoomable"/>
+                </div>
+
+                <div class="card treat-card">
+                    <h3 class="title">5. Blockly for Arduino</h3>
+                    <p>
+                        O <a href="https://github.com/google/blockly/tree/master/generators/arduino" target="_blank">Blockly for Arduino</a> é uma biblioteca open-source que permite criar e editar códigos Arduino usando blocos visuais. Ele oferece uma maneira intuitiva de programar projetos em Arduino, tornando a codificação mais acessível para iniciantes.
+                    </p>
+                    <p>
+                        Com o Blockly for Arduino, você pode criar programas Arduino de forma visual, montando blocos de código para definir a lógica e o comportamento do seu projeto. Isso torna o processo de programação mais visual e compreensível para iniciantes.
+                    </p>
+                    <br><br>
+                     <img src="https://developers.google.com/static/blockly/images/logos/logo_vertical.svg" style="max-width: 70%; height: auto;" height="200" class="zoomable"/>
+                </div>
+
+                <div class="card treat-card">
+                    <h3 class="title">6. Open Roberta</h3>
+                    <p>
+                        O <a href="https://lab.open-roberta.org/" target="_blank">Open Roberta</a> é uma plataforma de programação por blocos desenvolvida pela Fraunhofer IAIS, que oferece suporte a uma variedade de hardware, incluindo Arduino. Ele é usado principalmente em contextos educacionais e permite que os alunos programem e simulem projetos Arduino de forma intuitiva.
+                    </p>
+                    <p>
+                        Com o Open Roberta, você pode criar programas para Arduino usando blocos de programação visual, o que facilita a compreensão dos conceitos de programação. Ele oferece uma maneira divertida e educacional de aprender a programar e controlar projetos físicos com o Arduino.
+                    </p>
+                    <br><br>
+                   <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQY-vhXlCb3kpdmYLhpQ36K5624BqmjeZ_O5Vlay3wD7w&s" alt="Open Roberta" style="max-width: 70%; height: auto;" class="zoomable"/>
+                </div>
+
+                <div class="card treat-card">
+                    <h3 class="title">7. Arduino Blockly</h3>
+                    <p>
+                        O <a href="https://github.com/arduino/BlocklyDuino" target="_blank">Arduino Blockly</a> é uma ferramenta experimental que combina a facilidade de uso do Blockly com a flexibilidade do Arduino. Ele permite que você crie e edite programas Arduino usando blocos visuais, facilitando a aprendizagem e o desenvolvimento de projetos.
+                    </p>
+                    <p>
+                        Com o Arduino Blockly, você pode criar e editar programas Arduino de forma visual, arrastando e soltando blocos de código. Isso simplifica o processo de programação e ajuda a entender os princípios fundamentais da codificação Arduino.
+                    </p>
+                    <br><br>
+                   <img src="../imagens-prov/gfhf.png" alt="Arduino Blockly" style="max-width: 70%; height: auto;" class="zoomable"/>
+                </div>
+            </div>
+        </center>
+    </div>
+</section>
+
+      <div class="divider-2"></div>
+
+      <!-- TESTIMONIALS -->
+      <section class="section" id="testimonials">
+        <section id="comments" class="container comment-section">
+          <h3>Comentários</h3>
+          <form class="comment-form" onsubmit="adicionarComentario(event)">
+            <textarea
+              id="comentario-input"
+              placeholder="Escreva seu comentário aqui..."
+              required
+            ></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+          <div id="comentarios-container">
+            <!-- Comentários aparecerão aqui -->
+          </div>
+        </section>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a DevForm, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+            <a
+              href="https://chat.whatsapp.com/Gz7B5MAZ3iwDJzdpfmLb6A"
+              class="button"
+              target="_blank"
+            >
+              <i class="icon-whatsapp"></i> Junte-se ao nosso grupo
+            </a>
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-mail"></i> gabriel.meclovin2@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">Dev<span>Form</span>.</a>
+          <p>©2024 </p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- main.js -->
+    <script src="main.js"></script>
+  </body>
+</html>

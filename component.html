@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevForm</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+    <style>
+        .custom-width {
+            width: 700px;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9; /* IE8 */
+
+        }
+          .p4{
+              font-size: 20px;
+              text-align: center;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          .p3{
+              font-size: 20px;
+              text-align: left;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          button {
+                width: 100px;
+                background-color: green;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+             }
+
+           .card img {
+                width: 100%;
+                height: auto;
+                transition: transform 0.2s;
+            }
+
+            .card img.zoomable {
+                transition: transform 0.2s ease-in-out;
+            }
+
+            .card img.zoomable:hover {
+                transform: scale(1.2);
+            }
+             pre {
+                background-color: #d0d0d0;
+                padding: 10px;
+                border-radius: 5px;
+                overflow-x: auto;
+           }
+
+           .image-gallery {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                align-items: center;
+                gap: 10px; /* Space between images */
+            }
+
+            .image-gallery img {
+                max-width: 100%;
+                height: auto;
+                object-fit: contain;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                border-radius: 5px;
+            }
+
+    .comment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.comment {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-text {
+  margin: 0 0 0.5rem 0;
+}
+
+.comment-date {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.comment-form textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 80px; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.comment-form button {
+  background-color: #28a745; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #218838; 
+}
+
+#comentarios-container {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+    </style>
+     <script>
+        function copiarConteudo() {
+          // Seleciona o elemento com o ID "conteudo"
+          var conteudo = document.getElementById("conteudo");
+          var input = document.createElement("input");
+          
+          // Define o valor do input como o texto do conteúdo
+          input.value = conteudo.innerText;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          document.body.removeChild(input);
+          alert("Conteúdo copiado!");
+        }
+        // Função para adicionar um novo comentário
+          // Função para adicionar um novo comentário
+function adicionarComentario(event) {
+  event.preventDefault();
+
+  var comentarioInput = document.getElementById("comentario-input");
+  var comentarioTexto = comentarioInput.value.trim();
+
+  if (comentarioTexto !== "") {
+    var comentariosContainer = document.getElementById("comentarios-container");
+
+    var comentarioDiv = document.createElement("div");
+    comentarioDiv.classList.add("comment");
+
+    var comentarioTextP = document.createElement("p");
+    comentarioTextP.classList.add("comment-text");
+    comentarioTextP.innerText = comentarioTexto;
+
+    var comentarioDateP = document.createElement("p");
+    comentarioDateP.classList.add("comment-date");
+    comentarioDateP.innerText = new Date().toLocaleString();
+
+    comentarioDiv.appendChild(comentarioTextP);
+    comentarioDiv.appendChild(comentarioDateP);
+
+    comentariosContainer.appendChild(comentarioDiv);
+
+    comentarioInput.value = "";
+  }
+}
+
+
+      </script>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#">Dev<span>Form</span>.</a>
+        <!-- menu -->
+       <div class="menu">
+<style type="text/css">/Configurações Padrões/
+ul.menu, .menu li, .menu a{ margin:0; padding:0; list-style:none; text-decoration:none;}ul.menu ul{ position:absolute; display:none; box-shadow:3px 3px 2px #333;}/* Configurações nivel 1*/ul.menu{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:15px; border-radius:5px; padding:0 5px;}.menu li{ float:left; width:auto; position:relative;}.menu li a{ display:block; padding:0 20px; line-height:45px; height:45px; float:left; transition:all 0.1s linear; }/* Configurações nivel 2*/.menu li:hover > ul.submenu-1{ background:#fff; display:block;  top:45px; left:0; padding:5px; width:200px; border-radius:0 0 5px 5px;   }.menu ul.submenu-1 a{  width:160px; padding:0 20px; border-radius:5px;  }/* Configurações nivel 2*/.menu li:hover > ul.submenu-2{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-2 a{  width:160px; padding:0 20px; border-radius:5px; }/* Configurações nivel 3*/.menu li:hover > ul.submenu-3{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-3 a{  width:160px; padding:0 20px; border-radius:5px; }/Configurações de cores//nivel 1/.menu{background:#CCC; }.menu a{ color:#000;}.menu li:hover > a{ background:#999;  color:#444;}/nivel 2/.submenu-1{ background:#999;}.submenu-1 a{color:#333;}.submenu-1 li:hover > a{ background:#888; }/nivel 3/.submenu-2{ background:#666;}.submenu-2 a{color:#000;}.submenu-2 li:hover > a{ background:#333; }/nivel 3/.submenu-3{ background:#333;}.submenu-3 a{color:#fff;}.submenu-3 li:hover > a{ background:#000; }</style>
+<ul class="menu"> 
+<li><a href="file:../Devform2.0/home.html">HOME</a></li>
+                    <li><a href="#">PROJETOS</a>    
+                        <ul class="submenu-1">     
+                            <li><a href="file:../Devform2.0/index.html">PROJ.Semáforo</a></li>            
+                            <li><a href="file:../Devform2.0/proj_buzzer.html">PROJ.musica</a></li>        
+                            <li><a href="file:../Devform2.0/proj_censor.html">PROJ.censor</a></li>            
+                        </ul>
+                    </li>                    
+                    <li><a href="#">SOFTWARE</a>
+                        <ul class="submenu-1">
+                            <li><a href="file:../Devform2.0/dowload-info.html">Arcuino Cloud</a></li>
+                            <li><a href="file:../Devform2.0/tinkerkad.html">Tinkercad</a></li>
+                            <li><a href="file:../Devform2.0/varios.html">Variados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="file:../Devform2.0/component.html">COMPONENTES ELETRONICOS</a></li> 
+</li></ul></li></ul>   
+</style>
+        </div>
+        <!-- /menu -->
+         <div class="toggle icon-menu"></div>
+            <div class="toggle icon-close"></div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- HOME -->
+     <section class="section" id="home">
+            <div class="container grid">
+                <div class="image">
+                    <img src="https://cdn.awsli.com.br/600x700/468/468162/produto/34855708/4fe12b3f25.jpg" style="float:center;width:500px;height:400px " alt="imagem de melodia" />
+                </div>
+                <div class="text">
+                    <h2 class="title">O que é Arduino e como funciona?</h2>
+                    <p>
+                        Arduino é uma plataforma open-source de prototipagem eletrônica com hardware e software flexíveis e fáceis de usar, destinado a artistas, designers, hobistas e qualquer pessoa interessada em criar objetos ou ambientes interativos.
+                    </p>
+                    <p>
+                        Falando em termos práticos, as placas Arduino possuem funcionamento semelhante ao de um pequeno computador, no qual, pode-se programar a maneira como suas entradas e saídas devem se comportar em meio aos diversos componentes externos que podem ser conectados nas mesmas.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <div class="divider-1"></div>
+
+        <!-- ABOUT -->
+        <section class="section" id="about">
+            <div class="container grid">
+                <div class="image">
+                    <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj3MAgXgQI6y1dAgopLgY-4_FMcpAjwE1wHCtAN85wGg23oKximafZliJSYY3GRde_sTUmUs243lR3RXo_Fbk-hVZyXNmAqFXe-g7ckVEYQxATUqQrDcS5RTzBe_fewCvblPCkyJcFlqSNn/s1600/arduinos.png" style="float:center;width:300px;height:200px " alt="Arduino Cloud" />
+                </div>
+                <div class="text">
+                    <h2 class="title">Modelos de Arduinos</h2>
+                    <p>
+                        <strong>Arduino Uno – A placa mais popular</strong><br>
+                        Definitivamente, a mais famosa das placas é o Arduino Uno, esse será o modelo que você mais encontrará nos nossos tutoriais ou em de outros sites.
+                    </p>
+                    <p>
+                        O motivo dessa popularidade, muito provavelmente, está ligado a ela se a sucessora dos primeiros modelos de placas Arduino desenvolvidas, tal como o Arduino Duemilanove e o Arduino Diecimila, mantendo o mesmo layout.
+                    </p>
+                    <p>
+                        Além disso, ela possui um tamanho didático e uma configuração boa o suficiente para atender a maior parte dos projetos.
+                    </p>
+                    <p>
+                        A placa Uno está em sua terceira revisão. Por isso, é comum você encontrar essa placa descrita como Arduino UNO REV3. Porém, depois de tanto tempo da revisão, na grande maioria das vezes, as placas que encontrará, mesmo que não tenha o REV3 ou R3, sinalizando a revisão, provavelmente serão o modelo mais recente.
+                    </p>
+                </div>
+            </div>
+            <br><br><br>
+            <div class="container grid">
+
+            </div>    
+        </section>
+
+        <div class="divider-2"></div>
+
+        <!-- SERVICES -->
+        <section class="section" id="services">
+            <div class="container grid">
+                <header>
+                    <h2 class="title">Hardwares da Placa Arduino Uno</h2>
+                </header>
+                <section class="image-gallery">
+                    <img src="../imagens-prov/Arduino-Uno.jpg" alt="Imagem tela 5">
+                </section>
+                <center>
+                    <div class="cards grid custom-width">
+                        <div class="card treat-card zoomable-card">
+                            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTasCt9byLbUzOXcxa3FQpH2DvKwWUk7udxjJJWNoabjQ&s" alt="Arduino Cloud" class="zoomable" />
+                            <h3 class="title">Microcontrolador</h3>
+                            <p>
+                                Esse é o cérebro do Arduino. Um computador inteiro dentro de um pequeno chip. Este é o dispositivo programável que roda o código que enviamos à placa.
+                            </p>
+                            <p>
+                                Existem várias opções de marcas e modelos de microcontroladores, nessas placas foram adotados os microcontroladores da Microchip, que inicialmente eram produzidos pela Atmel, mas especificamente a linha ATmega. O modelo UNO, por exemplo, usa o microcontrolador ATmega328.
+                            </p>
+                        </div>
+
+                        <div class="card treat-card">
+                           
+                            <h3 class="title">Conector USB</h3>
+                            <p>
+                                Conecta a placa ao computador. É por onde o computador e o Arduino se comunicam com o auxílio de um cabo USB, além de ser uma opção de alimentação da placa.
+                            </p>
+                        </div>
+
+                        <div class="card treat-card">
+                            
+                            <h3 class="title">Pinos de Entrada e Saída</h3>
+                            <p>
+                                Pinos que utilizamos para conectar o Arduino a outros componentes, como LEDs, sensores, motores e diversos outros.
+                            </p>
+                        </div>
+                    </div>
+                </center>
+            </div>
+        </section>
+
+        <div class="divider-1"></div>
+
+        <!-- TESTIMONIALS -->
+        <section class="section" id="testimonials">
+            <div class="container">
+                <header>
+                    <h2 class="title">Hardwares e Componentes da robotica</h2>
+                </header>
+
+                 <section class="image-gallery">
+                    <img src="../imagens-prov/tela5.png" alt="Imagem tela 5">
+                    <img src="../imagens-prov/tela6.png" alt="Imagem tela 6">
+                    <img src="../imagens-prov/tela7.png" alt="Imagem tela 7">
+                    <img src="../imagens-prov/tela8.png" alt="Imagem tela 8">
+                    <img src="../imagens-prov/tela9.png" alt="Imagem tela 9">
+                    <img src="../imagens-prov/tela10.png" alt="Imagem tela 10">
+                    <img src="../imagens-prov/tela11.png" alt="Imagem tela 11">
+                    <img src="../imagens-prov/tela12.png" alt="Imagem tela 12">
+                    <img src="../imagens-prov/tela13.png" alt="Imagem tela 13">
+                    <img src="../imagens-prov/tela14.png" alt="Imagem tela 14">
+                    <img src="../imagens-prov/tela15.png" alt="Imagem tela 15">
+                    <img src="../imagens-prov/tela16.png" alt="Imagem tela 16">
+                    <img src="../imagens-prov/tela17.png" alt="Imagem tela 17">
+                    <img src="../imagens-prov/tela18.png" alt="Imagem tela 18">
+                    <img src="../imagens-prov/tela19.png" alt="Imagem tela 19">
+                    <img src="../imagens-prov/tela20.png" alt="Imagem tela 20">
+                    <img src="../imagens-prov/tela21.png" alt="Imagem tela 20">
+                 </section>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="section" id="testimonials">
+        <section id="comments" class="container comment-section">
+          <h3>Comentários</h3>
+          <form class="comment-form" onsubmit="adicionarComentario(event)">
+            <textarea
+              id="comentario-input"
+              placeholder="Escreva seu comentário aqui..."
+              required
+            ></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+          <div id="comentarios-container">
+            <!-- Comentários aparecerão aqui -->
+          </div>
+        </section>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a DevForm, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+             <a
+              href="https://chat.whatsapp.com/Gz7B5MAZ3iwDJzdpfmLb6A"
+              class="button"
+              target="_blank"
+            >
+              <i class="icon-whatsapp"></i> Junte-se ao nosso grupo
+            </a>
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-mail"></i> gabriel.meclovin2@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">Dev<span>Form</span>.</a>
+          <p>©2024 </p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- main.js -->
+    <script src="main.js"></script>
+  </body>
+</html>

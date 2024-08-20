@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="pt_BR">
+  <head>
+    <!-- PAGE INFO -->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DevForm</title>
+
+    <!-- Icones -->
+    <link rel="stylesheet" href="assets/fonts/style.css" />
+
+    <!-- Swiper -->
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/swiper/swiper-bundle.min.css"
+    />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="style.css" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Poppins:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+    <style>
+        .custom-width {
+            width: 700px;
+        }
+        .card img {
+            max-width: 100%;
+            height: auto;
+            width: auto\9; 
+        }
+          .p4{
+              font-size: 20px;
+              text-align: center;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          .p3{
+              font-size: 20px;
+              text-align: left;
+              text-indent: px;
+              color:  #FF8C00;
+              margin: 5%;}
+          button {
+                width: 100px;
+                background-color: green;
+                border: none;
+                border-radius: 5px;
+                padding: 10px;
+                color: white;
+                font-size: 16px;
+                cursor: pointer;
+              }
+              .small-image {
+                width: 300px; /* Define a largura da imagem */
+                height: auto; /* Mantém a proporção da imagem */
+              }
+              .center {
+                  text-align: center; /* Centraliza o conteúdo dentro do div, tentei facer via html deu interferencia com o css */
+                }
+
+   .comment-section {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  background-color: #f1f1f1;
+}
+
+.comment {
+  background: white;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.comment-text {
+  margin: 0 0 0.5rem 0;
+}
+
+.comment-date {
+  font-size: 0.85rem;
+  color: #555;
+}
+
+.comment-form textarea {
+  width: 100%;
+  max-width: 100%;
+  height: 80px; 
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+  box-sizing: border-box;
+}
+
+.comment-form button {
+  background-color: #28a745; 
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comment-form button:hover {
+  background-color: #218838; 
+}
+
+#comentarios-container {
+  margin-top: 1rem;
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: #f9f9f9;
+}
+
+    </style>
+     <script>
+        function copiarConteudo() {
+          // Seleciona o elemento com o ID "conteudo"
+          var conteudo = document.getElementById("conteudo");
+          var input = document.createElement("input");
+          
+          // Define o valor do input como o texto do conteúdo
+          input.value = conteudo.innerText;
+          document.body.appendChild(input);
+          input.select();
+          document.execCommand("copy");
+          document.body.removeChild(input);
+          alert("Conteúdo copiado!");
+        }
+        // Função para adicionar um novo comentário
+          // Função para adicionar um novo comentário
+function adicionarComentario(event) {
+  event.preventDefault();
+
+  var comentarioInput = document.getElementById("comentario-input");
+  var comentarioTexto = comentarioInput.value.trim();
+
+  if (comentarioTexto !== "") {
+    var comentariosContainer = document.getElementById("comentarios-container");
+
+    var comentarioDiv = document.createElement("div");
+    comentarioDiv.classList.add("comment");
+
+    var comentarioTextP = document.createElement("p");
+    comentarioTextP.classList.add("comment-text");
+    comentarioTextP.innerText = comentarioTexto;
+
+    var comentarioDateP = document.createElement("p");
+    comentarioDateP.classList.add("comment-date");
+    comentarioDateP.innerText = new Date().toLocaleString();
+
+    comentarioDiv.appendChild(comentarioTextP);
+    comentarioDiv.appendChild(comentarioDateP);
+
+    comentariosContainer.appendChild(comentarioDiv);
+
+    comentarioInput.value = "";
+  }
+}
+
+
+      </script>
+  <body>
+    <header id="header">
+      <nav class="container">
+        <a class="logo" href="#">Dev<span>Form</span>.</a>
+        <!-- menu -->
+       <div class="menu">
+          <style type="text/css">/Configurações Padrões/
+ul.menu, .menu li, .menu a{ margin:0; padding:0; list-style:none; text-decoration:none;}ul.menu ul{ position:absolute; display:none; box-shadow:3px 3px 2px #333;}/* Configurações nivel 1*/ul.menu{ float:left; font-family:Verdana, Geneva, sans-serif; font-size:15px; border-radius:5px; padding:0 5px;}.menu li{ float:left; width:auto; position:relative;}.menu li a{ display:block; padding:0 20px; line-height:45px; height:45px; float:left; transition:all 0.1s linear; }/* Configurações nivel 2*/.menu li:hover > ul.submenu-1{ background:#fff; display:block;  top:45px; left:0; padding:5px; width:200px; border-radius:0 0 5px 5px;   }.menu ul.submenu-1 a{  width:160px; padding:0 20px; border-radius:5px;  }/* Configurações nivel 2*/.menu li:hover > ul.submenu-2{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-2 a{  width:160px; padding:0 20px; border-radius:5px; }/* Configurações nivel 3*/.menu li:hover > ul.submenu-3{ display:block; top:0; left:195px; padding:5px; width:200px;  border-radius: 0 5px 5px 5px; }.menu ul.submenu-3 a{  width:160px; padding:0 20px; border-radius:5px; }/Configurações de cores//nivel 1/.menu{background:#CCC; }.menu a{ color:#000;}.menu li:hover > a{ background:#999;  color:#444;}/nivel 2/.submenu-1{ background:#999;}.submenu-1 a{color:#333;}.submenu-1 li:hover > a{ background:#888; }/nivel 3/.submenu-2{ background:#666;}.submenu-2 a{color:#000;}.submenu-2 li:hover > a{ background:#333; }/nivel 3/.submenu-3{ background:#333;}.submenu-3 a{color:#fff;}.submenu-3 li:hover > a{ background:#000; }</style>
+<ul class="menu"> 
+<li><a href="file:../Devform2.0/home.html">HOME</a></li>
+                    <li><a href="#">PROJETOS</a>    
+                        <ul class="submenu-1">     
+                            <li><a href="file:../Devform2.0/index.html">PROJ.Semáforo</a></li>            
+                            <li><a href="file:../Devform2.0/proj_buzzer.html">PROJ.musica</a></li>        
+                            <li><a href="file:../Devform2.0/proj_censor.html">PROJ.censor</a></li>            
+                        </ul>
+                    </li>                    
+                    <li><a href="#">SOFTWARE</a>
+                        <ul class="submenu-1">
+                            <li><a href="file:../Devform2.0/dowload-info.html">Arcuino Cloud</a></li>
+                            <li><a href="file:../Devform2.0/tinkerkad.html">Tinkercad</a></li>
+                            <li><a href="file:../Devform2.0/varios.html">Variados</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="file:../Devform2.0/component.html">COMPONENTES ELETRONICOS</a></li> 
+</li></ul></li></ul>   
+</style>
+        </div>
+        <!-- /menu -->
+        <div class="toggle icon-menu"></div>
+        <div class="toggle icon-close"></div>
+      </nav>
+    </header>
+
+    <main>
+      <!-- HOME -->
+      <section class="section" id="home">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://p2.trrsf.com/image/fget/cf/774/0/images.terra.com/2023/06/27/1670279662-600a8cfc12527f201c558ab821d894a6.jpg" style="float:center;width:500px;height:400px "
+              alt="imagem de melodia"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title">Meça sua temperatura!</h2>
+            <p>
+              aprenda a fazer seu proprio termômetro!<br>Sem enrolação.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <!-- ABOUT -->
+      <section class="section" id="about">
+        <div class="container grid">
+          <div class="image">
+            <img
+              src="https://s2.glbimg.com/waRD_wYdWtjtWVA-tvpW_Wqgkwk=/e.glbimg.com/og/ed/f/original/2020/12/22/matteo-fusco-4zvnt60-pak-unsplash.jpg" style="float:center;width:500px;height:400px "
+              alt="imagem do buzzer"
+            />
+          </div>
+          <div class="text">
+            <h2 class="title"></h2>
+            <p>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              <br>
+              Criar um termômetro com Arduino é um projeto relativamente simples e popular que permite medir a temperatura ambiente usando um sensor de temperatura, como o LM35, DHT11 ou DS18B20, e exibir o valor em um display. Aqui está um guia passo a passo usando o sensor LM35 e um display LCD 16x2:
+            </p>
+            <br />
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- SERVICES -->
+      <section class="section" id="services">
+        <div class="container grid">
+          <header>
+            <h2 class="title">Componentes Necesarios</h2>
+            <p>
+             <ul>
+               <li>1x buzzer</li>
+               <li>9x jumpers machos</li>
+               <li>1x arduino</li>
+               <li>1x led</li>
+               <li>1x resistor</li>
+               <li>1x protobord</li>
+               <li>1x Sensor de Temperatura LM35</li>
+              </ul>
+
+            </p>
+          </header>
+          <section class="section" id="about">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Determinando o Resistor Adequado para LEDs</h2>
+            <p><br><br>
+           Para determinar o valor do resistor para LEDs, você pode usar a tabela prática de resistores. No entanto, é mais preciso verificar o datasheet do fabricante do LED para obter os valores exatos de tensão e corrente. Veja mais detalhes em Como calcular o resistor adequado para o LED. Resumidamente, resistores acima de 150 Ω são geralmente seguros para LEDs de todas as cores em circuitos de até 5V.
+              <br>
+              </p>
+            <br />
+          </div>
+        </div>
+      </section>
+      <div class="cards grid">
+            <div class="card">
+              <h3 class="title">ATENÇÃO</h3>
+              <img class ="imagem-reduzida"
+              src="https://www.guj.com.br/uploads/default/original/3X/0/9/09b186fa1a06ee6b05fe8974626d24d079b64854.jpeg"  class="custom-img"
+              alt="imagem informativa"
+            />
+              <p>
+              <br><br><br><br><br><br>Lembre-se que o LED tem polaridade: O terminal maior tem polaridade positiva e o lado do chanfro tem polaridade negativa
+              </p>
+            </div>
+            <div class="card">
+               <img
+              src="../imagens-prov/ggg.png"  class="custom-img"
+              alt="imagem de tela 1"
+            />
+              <h3 class="title">Passo 1</h3>
+              <p>
+               faça a conexão da porta digital do Arduino no terminal positivo (anodo) e o GND no terminal negativo (catodo) do led. <br>
+               Para evitar danos ao led é necessário a inclusão de um resistor no circuito. Como o resistor é um limitador da corrente elétrica, ele poderá estar conectado no anodo (terminal maior) ou no catodo (terminal menor) do led.
+              </p>
+            </div>
+            <div class="card">
+               <img
+              src="../imagens-prov/frf.png"  class="custom-img"
+              alt="imagem de tela 2"
+            />
+              <h3 class="title">Passo 2</h3>
+              <p>
+               Valores Comuns de Resistores</p>
+               <ul>
+                <li>LEDs Vermelho, Laranja e Amarelo: 150 Ω</li>
+               <li> LEDs Verde e Azul: 100 Ω ou 150 Ω</li>
+              </ul>
+          </div>
+            <div class="card treat-card">
+               <img
+              src="../imagens-prov/grg.png"  class="small-image"
+              alt="imagem de tela 3"
+            />
+             <p>6° O buzzer tem polaridade: se retirar o adesivo superior do buzzer poderá ver um sinal de positivo (+). Este sinal mostra onde está o pino positivo do componente. 
+          <br><br>
+          7° A montagem abaixo foi realizada em um protoboard com linhas de alimentação contínuas. Verifique se o seu protoboard possui linhas de alimentação contínuas ou separadas - saiba mais em protoboard</p>
+          </div>
+           <div class="center">
+             <div class="card">
+               <img
+              src="../imagens-prov/ses.png"  class="custom-img"
+              alt="imagem de tela 2"
+            />
+              <h3 class="title">Visão geral</h3>
+          </div>
+          </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+
+      <section class="section" id="about">
+        <div class="container grid">
+             <center>
+          <div class="cards grid custom-width">
+             <div class="card treat-card ">
+              <h3 class="title">Programa</h3>
+              <p class="p3"  id="conteudo">
+
+                 /*******************************************************************************<br>
+                *<br>
+                *    Projeto 11 – Sensor de temperatura com alarme<br>
+                *<br>
+                *******************************************************************************/<br>
+                 <br>
+                const int LM35 = 0; // entrada sensor no Arduino: A0 - Analógica<br>
+                float temperatura = 0; // variável tipo float - inícia no 0<br>
+                int ADClido = 0;<br>
+                const int Buzzer = 12; // entrada buzzer: 12 - digital<br>
+                const int Led10 = 10; // entrada led: 10 - digital<br>
+                 <br>
+                //****************************************************************************<br>
+                 <br>
+                void setup(){<br>
+                Serial.begin(9600); // taxa comunicação da placa com o computador<br>
+                analogReference(INTERNAL); //No Mega, use INTERNAL1V1, no Leonardo remova essa linha<br>
+                pinMode(Buzzer, OUTPUT);<br>
+                pinMode(Led10, OUTPUT);<br>
+                }<br>
+                 <br>
+                //****************************************************************************<br>
+                 <br>
+                void loop(){<br>
+                ADClido = analogRead(LM35);<br>
+                temperatura = ADClido * 0.1075268817204301; //no Leonardo use 0.4887585532<br>
+                Serial.print("Temperatura = "); //mostra valor na tela<br>
+                Serial.print(temperatura);<br>
+                Serial.println(" *C");<br>
+                   <br>
+                if(temperatura > 32){ // setado como 32ºC<br>
+                digitalWrite(Buzzer, HIGH); //aciona o buzer<br>
+                digitalWrite(Led10, HIGH);  //aciona o led<br>
+                }<br>
+                else{<br>
+                digitalWrite(Buzzer, LOW);<br>
+                digitalWrite(Led10, LOW);<br>
+                }<br>
+                delay(500);<br>
+                }
+                  </p>
+              </p>
+
+               <button onclick="copiarConteudo()">Copiar</button>
+            </div>
+          </div>
+        </center>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- TESTIMONIALS -->
+      <section class="section" id="testimonials">
+      <section class="section" id="testimonials">
+        <section id="comments" class="container comment-section">
+          <h3>Comentários</h3>
+          <form class="comment-form" onsubmit="adicionarComentario(event)">
+            <textarea
+              id="comentario-input"
+              placeholder="Escreva seu comentário aqui..."
+              required
+            ></textarea>
+            <button type="submit">Enviar</button>
+          </form>
+          <div id="comentarios-container">
+            <!-- Comentários aparecerão aqui -->
+          </div>
+        </section>
+      </section>
+      </section>
+
+      <div class="divider-2"></div>
+
+      <!-- CONTACT -->
+      <section class="section" id="contact">
+        <div class="container grid">
+          <div class="text">
+            <h2 class="title">Entre em contato com a gente!</h2>
+            <p>
+              Entre em contato com a DevForm, queremos tirar suas dúvidas,
+              ouvir suas críticas e sugestões.
+            </p>
+            <a
+              href="https://chat.whatsapp.com/Gz7B5MAZ3iwDJzdpfmLb6A"
+              class="button"
+              target="_blank"
+            >
+              <i class="icon-whatsapp"></i> Junte-se ao nosso grupo
+            </a>
+          </div>
+
+          <div class="links">
+            <ul class="grid">
+              <li><i class="icon-mail"></i> gabriel.meclovin2@gmail.com</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <div class="divider-1"></div>
+    </main>
+
+    <footer class="section">
+      <div class="container grid">
+        <div class="brand">
+          <a class="logo logo-alt" href="#home">Dev<span>Form</span>.</a>
+          <p>©2024 </p>
+          <p>Todos os direitos reservados.</p>
+        </div>
+
+        <div class="social grid">
+          <a href="https://instagram.com" target="_blank">
+            <i class="icon-instagram"></i>
+          </a>
+          <a href="https://facebook.com" target="_blank">
+            <i class="icon-facebook"></i
+          ></a>
+          <a href="https://youtube.com" target="_blank"
+            ><i class="icon-youtube"></i
+          ></a>
+        </div>
+      </div>
+    </footer>
+
+    <a href="#home" class="back-to-top"><i class="icon-arrow-up"></i></a>
+
+    <!-- swiper -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
+    <!-- scrollreveal -->
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <!-- main.js -->
+    <script src="main.js"></script>
+  </body>
+</html>
